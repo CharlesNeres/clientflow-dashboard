@@ -7,10 +7,20 @@ function Clients() {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("All");
 
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
   useEffect(() => {
-    getClients().then((data) => {
-      setClients(data);
-    });
+    getClients()
+      .then((data) => {
+        setClients(data);
+      })
+      .catch(() => {
+        setError("Failed to load clients.");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   const filteredClients = clients.filter((client) => {
@@ -23,6 +33,14 @@ function Clients() {
 
     return matchesSearch && matchesStatus;
   });
+
+  if (loading) {
+    return <p>Loading clients...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <div>
