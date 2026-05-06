@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getClients } from "../services/clientService";
 import type { Client } from "../types/client";
+import { Link } from "react-router-dom";
 
 function Clients() {
   const [clients, setClients] = useState<Client[]>([]);
@@ -75,7 +76,9 @@ function Clients() {
         <tbody>
           {filteredClients.map((client) => (
             <tr key={client.id}>
-              <td>{client.name}</td>
+              <td>
+                <Link to={`/clients/${client.id}`}>{client.name}</Link>
+              </td>
               <td>{client.email}</td>
               <td>{client.company}</td>
               <td>{client.status}</td>
