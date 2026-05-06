@@ -3,12 +3,17 @@ import { clients } from "../data/clients";
 
 function Clients() {
   const [search, setSearch] = useState("");
-
-  const filteredClients = clients.filter(
-    (client) =>
+  const [statusFilter, setStatusFilter] = useState("All");
+  const filteredClients = clients.filter((client) => {
+    const matchesSearch =
       client.name.toLowerCase().includes(search.toLowerCase()) ||
-      client.email.toLowerCase().includes(search.toLowerCase()),
-  );
+      client.email.toLowerCase().includes(search.toLowerCase());
+
+    const matchesStatus =
+      statusFilter === "All" || client.status === statusFilter;
+
+    return matchesSearch && matchesStatus;
+  });
 
   return (
     <div>
@@ -20,6 +25,15 @@ function Clients() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+
+      <select
+        value={statusFilter}
+        onChange={(e) => setStatusFilter(e.target.value)}
+      >
+        <option value="All">All</option>
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
       <table>
         <thead>
           <tr>

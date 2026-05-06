@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+select {
+  padding: 10px 12px;
+  margin-left: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
