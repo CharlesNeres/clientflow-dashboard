@@ -1,20 +1,30 @@
 import { Link, Outlet } from "react-router-dom";
+import { clients } from "../data/clients";
 function Clients() {
   return (
     <div>
-      <header>
-        <h2>ClientFlow</h2>
+      <h1>Clients</h1>
 
-        <nav>
-          <Link to="/">Dashboard</Link>
-          <Link to="/clients">Clients</Link>
-          <Link to="/tasks">Tasks</Link>
-        </nav>
-      </header>
-
-      <main>
-        <Outlet />
-      </main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Company</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {clients.map((client) => (
+            <tr key={client.id}>
+              <td>{client.name}</td>
+              <td>{client.email}</td>
+              <td>{client.company}</td>
+              <td>{client.status}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
