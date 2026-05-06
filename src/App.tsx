@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import Clients from "./pages/Clients";
 import Tasks from "./pages/Tasks";
 import ClientDetails from "./pages/ClientDetails";
+import NewClient from "./pages/NewClient";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="clients" element={<Clients />} />
           <Route path="tasks" element={<Tasks />} />
           <Route path="clients/:id" element={<ClientDetails />} />
+          <Route path="clients/new" element={<NewClient />} />
         </Route>
       </Routes>
     </BrowserRouter>

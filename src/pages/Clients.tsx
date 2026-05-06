@@ -47,6 +47,9 @@ function Clients() {
     <div>
       <h1>Clients</h1>
 
+      <Link to="/clients/new">
+        <button>Create Client</button>
+      </Link>
       <input
         type="text"
         placeholder="Search by name or email..."
