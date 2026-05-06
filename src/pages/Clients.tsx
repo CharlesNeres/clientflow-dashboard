@@ -1,9 +1,18 @@
-import { useState } from "react";
-import { clients } from "../data/clients";
+import { useEffect, useState } from "react";
+import { getClients } from "../services/clientService";
+import type { Client } from "../types/client";
 
 function Clients() {
+  const [clients, setClients] = useState<Client[]>([]);
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("All");
+
+  useEffect(() => {
+    getClients().then((data) => {
+      setClients(data);
+    });
+  }, []);
+
   const filteredClients = clients.filter((client) => {
     const matchesSearch =
       client.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -34,6 +43,7 @@ function Clients() {
         <option value="Active">Active</option>
         <option value="Inactive">Inactive</option>
       </select>
+
       <table>
         <thead>
           <tr>
@@ -43,6 +53,7 @@ function Clients() {
             <th>Status</th>
           </tr>
         </thead>
+
         <tbody>
           {filteredClients.map((client) => (
             <tr key={client.id}>
