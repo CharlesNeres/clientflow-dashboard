@@ -94,9 +94,15 @@ function Clients() {
               <td>{client.company}</td>
               <td>{client.status}</td>
               <td>
-                <Link to={`/clients/${client.id}/edit`}>Edit</Link>
-
-                <button onClick={() => handleDelete(client.id)}>Delete</button>
+                <Link to={`/clients/${client.id}/edit`}>
+                  <button className="edit">Edit</button>
+                </Link>
+                <button
+                  className="delete"
+                  onClick={() => handleDelete(client.id)}
+                >
+                  Delete
+                </button>{" "}
               </td>
             </tr>
           ))}

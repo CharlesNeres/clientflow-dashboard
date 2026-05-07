@@ -68,3 +68,44 @@ th {
   font-weight: bold;
   margin: 10px 0 0;
 }
+
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+/* button default */
+button {
+  background: #2563eb;
+  color: white;
+}
+
+button:hover {
+  background: #1e4ed8;
+}
+
+/* botão delete */
+button.delete {
+  background: #dc2626;
+}
+
+button.delete:hover {
+  background: #b91c1c;
+}
+
+/* botão edit */
+button.edit {
+  background: #16a34a;
+}
+
+button.edit:hover {
+  background: #15803d;
+}
+
+td button {
+  margin-right: 8px;
+}
