@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Client } from "../types/client";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { deleteClient, getClients } from "../services/clientService";
 function Clients() {
   const [clients, setClients] = useState<Client[]>([]);
@@ -9,8 +10,14 @@ function Clients() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
+  const navigate = useNavigate();
   useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+
+    if (!token) {
+      navigate("/login");
+      return;
+    }
     getClients()
       .then((data) => {
         setClients(data);

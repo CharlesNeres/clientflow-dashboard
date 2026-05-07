@@ -6,10 +6,12 @@ import Tasks from "./pages/Tasks";
 import ClientDetails from "./pages/ClientDetails";
 import NewClient from "./pages/NewClient";
 import EditClient from "./pages/EditClient";
+import Login from "./pages/Login";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="clients" element={<Clients />} />
