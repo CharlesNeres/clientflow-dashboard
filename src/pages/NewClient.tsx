@@ -1,4 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { createClient } from "../services/clientService";
 
 function NewClient() {
   const [name, setName] = useState("");
@@ -6,20 +8,21 @@ function NewClient() {
   const [company, setCompany] = useState("");
   const [status, setStatus] = useState("Active");
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const newClient = {
+    createClient({
       name,
       email,
       company,
       status,
-    };
-
-    console.log(newClient);
-
-    alert("Client created (simulated");
+    }).then(() => {
+      navigate("/clients");
+    });
   };
+
   return (
     <div>
       <h1>New Client</h1>

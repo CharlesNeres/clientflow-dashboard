@@ -1,4 +1,6 @@
-export const clients = [
+import type { Client } from "../types/client";
+
+export let clients: Client[] = [
   {
     id: 1,
     name: "John Smith",

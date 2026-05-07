@@ -17,3 +17,18 @@ export const getClientById = (id: number): Promise<Client | undefined> => {
     }, 500);
   });
 };
+
+export const createClient = (client: Omit<Client, "id">): Promise<Client> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const newClient: Client = {
+        ...client,
+        id: Date.now(),
+      };
+
+      clients.push(newClient);
+
+      resolve(newClient);
+    }, 500);
+  });
+};
