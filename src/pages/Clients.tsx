@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { getClients } from "../services/clientService";
 import type { Client } from "../types/client";
 import { Link } from "react-router-dom";
-
+import { deleteClient, getClients } from "../services/clientService";
 function Clients() {
   const [clients, setClients] = useState<Client[]>([]);
   const [search, setSearch] = useState("");
@@ -23,6 +22,14 @@ function Clients() {
         setLoading(false);
       });
   }, []);
+
+  const handleDelete = (id: number) => {
+    deleteClient(id).then(() => {
+      getClients().then((data) => {
+        setClients(data);
+      });
+    });
+  };
 
   const filteredClients = clients.filter((client) => {
     const matchesSearch =
@@ -88,6 +95,8 @@ function Clients() {
               <td>{client.status}</td>
               <td>
                 <Link to={`/clients/${client.id}/edit`}>Edit</Link>
+
+                <button onClick={() => handleDelete(client.id)}>Delete</button>
               </td>
             </tr>
           ))}

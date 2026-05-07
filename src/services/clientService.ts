@@ -51,3 +51,20 @@ export const updateClient = (updatedClient: Client): Promise<Client> => {
     }, 500);
   });
 };
+
+export const deleteClient = (id: number): Promise<void> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const index = clients.findIndex((client) => client.id === id);
+
+      if (index === -1) {
+        reject(new Error("Client not found"));
+        return;
+      }
+
+      clients.splice(index, 1);
+
+      resolve();
+    }, 500);
+  });
+};
