@@ -32,3 +32,22 @@ export const createClient = (client: Omit<Client, "id">): Promise<Client> => {
     }, 500);
   });
 };
+
+export const updateClient = (updatedClient: Client): Promise<Client> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const index = clients.findIndex(
+        (client) => client.id === updatedClient.id,
+      );
+
+      if (index === -1) {
+        reject(new Error("Client not found"));
+        return;
+      }
+
+      clients[index] = updatedClient;
+
+      resolve(updatedClient);
+    }, 500);
+  });
+};

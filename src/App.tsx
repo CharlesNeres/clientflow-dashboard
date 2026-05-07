@@ -5,7 +5,7 @@ import Clients from "./pages/Clients";
 import Tasks from "./pages/Tasks";
 import ClientDetails from "./pages/ClientDetails";
 import NewClient from "./pages/NewClient";
-
+import EditClient from "./pages/EditClient";
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +16,7 @@ function App() {
           <Route path="tasks" element={<Tasks />} />
           <Route path="clients/:id" element={<ClientDetails />} />
           <Route path="clients/new" element={<NewClient />} />
+          <Route path="clients/:id/edit" element={<EditClient />} />
         </Route>
       </Routes>
     </BrowserRouter>

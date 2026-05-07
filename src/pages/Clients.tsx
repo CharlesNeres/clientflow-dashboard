@@ -73,6 +73,7 @@ function Clients() {
             <th>Email</th>
             <th>Company</th>
             <th>Status</th>
+            <th>Actions</th>
           </tr>
         </thead>
 
@@ -85,6 +86,9 @@ function Clients() {
               <td>{client.email}</td>
               <td>{client.company}</td>
               <td>{client.status}</td>
+              <td>
+                <Link to={`/clients/${client.id}/edit`}>Edit</Link>
+              </td>
             </tr>
           ))}
         </tbody>
