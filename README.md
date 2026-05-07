@@ -1,73 +1,104 @@
-# React + TypeScript + Vite
+🚀 ClientFlow Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Full-stack application built with Django REST Framework and React + TypeScript.
 
-Currently, two official plugins are available:
+This project simulates a real-world client management system with authentication and full CRUD functionality.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Backend:
 
-## Expanding the ESLint configuration
+- Django
+- Django REST Framework
+- JWT Authentication
+- SQLite (ou PostgreSQL)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Frontend:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- React Router
+- Axios
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🔐 Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Authentication (JWT login)
+- Protected routes
+- Client management (Create, Read, Update, Delete)
+- Task management
+- Search and filtering
+- Dashboard summary
+- Basic UI system (sidebar, badges, buttons)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+⚙️ How to run
+
+Backend:
+
+cd backend
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+
+Frontend:
+
+cd frontend
+npm install
+npm run dev
+
+---
+
+🔗 API
+
+Base URL:
+http://127.0.0.1:8000/api
+
+Endpoints:
+
+/api/token/
+/api/clients/
+/api/clients/{id}/
+
+---
+
+🎯 Purpose
+
+This project was built to demonstrate:
+
+- Full-stack development skills
+- API integration
+- Authentication with JWT
+- Clean architecture and code organization
+
+---
+
+📸 Screenshots
+
+## 📸 Screenshots
+
+### 🔐 Login
+
+![Login](screenshots/login.png)
+
+### 📊 Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### 👥 Clients
+
+![Clients](screenshots/clients.png)
+
+### 👥 Tasks
+
+![Tasks](screenshots/tasks.png)
+
+---
+
+👨‍💻 Author
+
+Charles Junior
