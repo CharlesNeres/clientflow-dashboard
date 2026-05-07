@@ -109,3 +109,32 @@ button.edit:hover {
 td button {
   margin-right: 8px;
 }
+
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+aside a {
+  color: #d1d5db;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+aside a:hover {
+  background: #1f2937;
+  color: #fff;
+}

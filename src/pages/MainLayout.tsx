@@ -14,33 +14,28 @@ function MainLayout() {
     <div style={{ display: "flex", height: "100vh" }}>
       <aside
         style={{
-          width: "200px",
-          background: "#111",
+          width: "220px",
+          background: "#111827",
           color: "#fff",
           padding: "20px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
         }}
       >
-        <button onClick={handleLogout}>Logout</button>
-        <h2>ClientFlow</h2>
+        <div>
+          <h2 style={{ marginBottom: "20px" }}>ClientFlow</h2>
 
-        <nav
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "10px",
-            marginTop: "20px",
-          }}
-        >
-          <Link to="/" style={{ color: "#fff" }}>
-            Dashboard
-          </Link>
-          <Link to="/clients" style={{ color: "#fff" }}>
-            Clients
-          </Link>
-          <Link to="/tasks" style={{ color: "#fff" }}>
-            Tasks
-          </Link>
-        </nav>
+          <nav
+            style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+          >
+            <Link to="/">Dashboard</Link>
+            <Link to="/clients">Clients</Link>
+            <Link to="/tasks">Tasks</Link>
+          </nav>
+        </div>
+
+        <button onClick={handleLogout}>Logout</button>
       </aside>
       <main style={{ flex: 1, padding: "20px" }}>
         <Outlet />

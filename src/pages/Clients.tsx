@@ -99,7 +99,15 @@ function Clients() {
               </td>
               <td>{client.email}</td>
               <td>{client.company}</td>
-              <td>{client.status}</td>
+              <td>
+                <span
+                  className={`status ${
+                    client.status === "Active" ? "active" : "inactive"
+                  }`}
+                >
+                  {client.status}
+                </span>
+              </td>
               <td>
                 <Link to={`/clients/${client.id}/edit`}>
                   <button className="edit">Edit</button>
