@@ -7,12 +7,20 @@ import ClientDetails from "./pages/ClientDetails";
 import NewClient from "./pages/NewClient";
 import EditClient from "./pages/EditClient";
 import Login from "./pages/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<MainLayout />}>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <MainLayout />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<Dashboard />} />
           <Route path="clients" element={<Clients />} />
           <Route path="tasks" element={<Tasks />} />

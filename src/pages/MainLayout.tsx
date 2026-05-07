@@ -1,6 +1,15 @@
 import { Link, Outlet } from "react-router-dom";
 
+import { useNavigate } from "react-router-dom";
+import { logout } from "../services/authService";
 function MainLayout() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   return (
     <div style={{ display: "flex", height: "100vh" }}>
       <aside
@@ -11,7 +20,9 @@ function MainLayout() {
           padding: "20px",
         }}
       >
+        <button onClick={handleLogout}>Logout</button>
         <h2>ClientFlow</h2>
+
         <nav
           style={{
             display: "flex",
